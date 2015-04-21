@@ -1,0 +1,19 @@
+<nav ui-view='navbar'></nav>
+
+<div class="container">
+	<div class="row">
+		
+		<div class="col-sm-4">
+			<div class="well">
+				<h2 class="text-primary">Tu Promedio</h2>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div ui-view='pendingEval' ng-show="user.pending"></div>
+			<div ui-view='newEval' ng-show="!user.pending"></div>
+
+			<div ui-view='lastEval' ng-show="user.last"></div>
+		</div>
+	</div>
+</div>
+
