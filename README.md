@@ -1,2 +1,0 @@
-# gema-angular
-GEMA AngularJS

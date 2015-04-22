@@ -1,8 +1,7 @@
-.btn-big{
-	
-	padding:15px;
-}
-.btn-big span{
-	font-size:120px;
+body{
+	font-family: 'Open Sans', sans-serif;
 }
 
+.np{
+	padding:0;
+}
