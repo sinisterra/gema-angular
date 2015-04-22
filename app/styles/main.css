@@ -5,9 +5,8 @@ html{
 body{
 	font-family: 'Open Sans', sans-serif;
 	background-color:#eaeaea;
-	
-
 }
+
 
 .nowrap{
 	white-space: nowrap;
@@ -72,6 +71,11 @@ body{
 
 .text-mint{
 	color: rgb(62, 180, 137); 
+}
+
+.clock{
+	font-size: 2em;
+	font-weight: bold;
 }
 @media(min-width: 480px){
 	.center-xs{

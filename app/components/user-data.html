@@ -1,0 +1,22 @@
+<div id="user-data" class="col-sm-12" ng-controller="UserCtrl">
+	<div class="col-sm-6 center-xs">
+		<h1>
+			<img src="app/images/logo.png" class="logo-gema">
+			GEMA
+		</h1>
+	</div>
+	<div class="col-sm-6 text-right center-xs" style="margin-top:20px; margin-bottom:10px">
+		<p> 
+			<span class="loggedUser-user" ng-bind="user.name"></span>
+			<span class="loggedUser-role" ng-bind="user.role"></span>
+		</p>
+		<button class="btn btn-primary" role="button">
+			<span class="fa fa-user"></span>
+			Preferencias
+		</button>
+		<button class="btn btn-danger"role="button" ng-click="logout()">
+			<span class="fa fa-sign-out"></span>
+			Cerrar Sesión
+		</button>
+	</div>
+</div>

@@ -19,5 +19,9 @@ angular.module('Gema', ['ui.router', 'ui.bootstrap'])
 			templateUrl: 'app/views/contestar.html',
 			controller: 'ContestarEvaluacionCtrl'
 		})
+		.state('revisar', {
+			url: '/revisar/:idEval',
+			templateUrl: 'app/views/revisar.html',
+		})
 
 });
