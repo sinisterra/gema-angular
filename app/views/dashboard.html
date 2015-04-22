@@ -1,0 +1,108 @@
+<div id="user-data" class="col-sm-12">
+	<div class="col-sm-6">
+		<h1>
+			<img src="app/images/logo.png" class="logo-gema">
+			GEMA
+		</h1>
+	</div>
+	<div class="col-sm-6 text-right" style="margin-top:20px; margin-bottom:10px">
+		<p> 
+			<span class="loggedUser-user" ng-bind="user.name"></span>
+			<span class="loggedUser-role" ng-bind="user.role"></span>
+		</p>
+		<button class="btn btn-primary" role="button">
+			<span class="fa fa-user"></span>
+			Preferencias
+		</button>
+		<button class="btn btn-danger"role="button" ng-controller="LogoutCtrl", ng-click="logout()">
+			<span class="fa fa-sign-out"></span>
+			Cerrar Sesión
+		</button>
+	</div>
+</div>
+	<div class="container" >
+		<div class="col-md-4" style="margin-top:15px;">
+			<div class="card">
+				<h1 class="text-center">Tu Promedio</h1>
+				<p class="average text-center" ng-class="{'text-success': user.average >= 80, 'text-warning': user.average < 80 && user.average >=60, 'text-danger': user.average < 60}" ng-bind="user.average"></p>
+			</div>
+			<div class="card">
+				<h2>Control de Prototipo</h2>
+				<div class="checkbox checkbox-success">
+					<label>
+						<input type="checkbox" ng-model="user.pending.state">
+						Evaluación Pendiente
+					</label>
+				</div>
+				<div class="checkbox checkbox-success">
+					<label>
+						<input type="checkbox" ng-true-value="'p'" ng-false-value="'s'" ng-model="user.next">
+						Evaluación Sig: personalizada/estándar
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" ng-model="user.previous">
+						Resultados Previos
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8" style="margin-top:15px;">
+			<!-- Evaluación pendiente -->
+			<div class="card text-center" ng-show="user.pending.state">
+				<h2 >
+					<strong class='text-danger'>Tienes una evaluación en curso.</strong><br>
+					<small>
+						<strong ng-show="user.pending.type == 'p'">Evaluación Personalizada</strong>
+						<strong ng-show="user.pending.type == 's'">Evaluación Estándar</strong>
+						<span>- Iniciada <span ng-bind="user.pending.start"></span></strong>
+					</small>
+
+				</h2>
+				<button class="btn btn-lg btn-danger" ui-sref="contestar">Seguir contestando</button>
+			</div>
+			<!-- Nueva evaluación -->
+			<div class="card" ng-show="!user.pending.state">
+				<div class="row">
+					
+				<div class="col-sm-8">
+					
+					<h2 >
+						<strong>Nueva Evaluación</strong><br>
+						<small ng-show="user.next == 'p'">
+							<strong>Personalizada - </strong>
+							<span>Ésta evaluación está hecha a la medida, basada en tus fortalezas y deficiencias.</span>
+						</small>
+						<small ng-show="user.next == 's'">
+							<strong>Estándar - </strong>
+							<span>Esta evaluación está basada en la prueba para la que te estás preparando. </span>
+						</small>
+					</h2>
+				</div>
+				<div class="col-sm-4">
+					<button class="btn btn-lg btn-block btn-success ms" ui-sref="contestar">Contestar</button>
+				</div>
+				</div>
+			</div>
+			<!-- Evaluaciones Previas -->
+			<div class="card">
+				<h2>
+					<strong>Resultados</strong>
+				</h2>
+				<div ng-show="user.previous" >
+				</div>
+				<div ng-show="!user.previous" class="text-center">
+					<h3>
+						<strong>No hay resultados previos</strong><br>
+						<small>Aún no has contestado evaluaciones</small>
+					</h3>
+					
+				</div>
+			</div>
+		
+	</div>
+</div>
+
+
+

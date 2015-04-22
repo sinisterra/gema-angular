@@ -14,5 +14,10 @@ angular.module('Gema', ['ui.router', 'ui.bootstrap'])
 			templateUrl: 'app/views/dashboard.html',
 			controller: 'DashboardCtrl'
 		})
+		.state('contestar', {
+			url: '/contestar',
+			templateUrl: 'app/views/contestar.html',
+			controller: 'ContestarEvaluacionCtrl'
+		})
 
 });

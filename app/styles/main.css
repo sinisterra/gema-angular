@@ -1,7 +1,71 @@
+html{
+	height:100%;
+}
+
 body{
 	font-family: 'Open Sans', sans-serif;
+	background-color:#eaeaea;
+	
+
+}
+
+.nowrap{
+	white-space: nowrap;
+}
+
+
+.card{
+	box-shadow: 0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
+	background-color:#fff;
+	padding:15px;
+	margin:15px 0px;
 }
 
 .np{
 	padding:0;
+}
+
+#user-data{
+	/*lime */
+	background-color: #8BC34A; 
+	/*menta*/
+	background-color: rgb(62, 180, 137); 
+	color:#fff;
+	padding: 20px 0px;
+}
+
+#container{
+	background-color: rgb(62, 180, 137);
+	height:100%;
+	padding:15px;
+}
+
+.loggedUser-user{
+	font-size:20pt;
+	margin-bottom: 0;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.loggedUser-role{
+	font-size:16pt;
+	margin-bottom: 0;
+}
+
+.logo-gema{
+	width:100px;
+}
+
+.text-warning{
+	color:#FFC107;
+}
+
+.ms{
+	margin-top:20px;
+	margin-bottom:10px;
+}
+
+.average{
+	font-size:8em;
+	font-weight: bold;
 }
