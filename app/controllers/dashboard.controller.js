@@ -10,6 +10,8 @@ angular.module('Gema')
 			'start': 'hace 10 minutos'
 		},
 		'next': 'p',
+		'previous': [
+		{},{},{}]
 	}
 
 
