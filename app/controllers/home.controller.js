@@ -5,7 +5,8 @@ angular.module('Gema')
 	$scope.modalLogin = function(){
 		var modalInstance = $modal.open({
 			templateUrl: 'app/views/modals/login.modal.html',
-			controller: 'LoginCtrl'
+			controller: 'LoginCtrl',
+			size: 'md'
 		})
 	}
 

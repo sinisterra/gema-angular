@@ -1,7 +1,7 @@
 <div id="user-data" class="col-sm-12" ng-controller="UserCtrl">
 	<div class="col-sm-6 center-xs">
 		<h1>
-			<img src="app/images/logo.png" class="logo-gema">
+			<img src="app/images/logo.png" class="logo-gema" ui-sref="dashboard">
 			GEMA
 		</h1>
 	</div>
@@ -10,10 +10,10 @@
 			<span class="loggedUser-user" ng-bind="user.name"></span>
 			<span class="loggedUser-role" ng-bind="user.role"></span>
 		</p>
-		<button class="btn btn-primary" role="button">
+		<a class="btn btn-primary" role="button" ui-sref='settings'>
 			<span class="fa fa-user"></span>
 			Preferencias
-		</button>
+		</a>
 		<button class="btn btn-danger"role="button" ng-click="logout()">
 			<span class="fa fa-sign-out"></span>
 			Cerrar Sesión
