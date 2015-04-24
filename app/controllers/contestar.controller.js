@@ -60,15 +60,25 @@ angular.module('Gema')
 
 		$scope.save = function(){
 			var modalInstance = $modal.open({
-				'templateUrl': 'app/views/modals/evalSaved.modal.html',
-				'size': 'md'
+				'templateUrl': 'app/views/modals/evalSave.modal.html',
+				'controller': 'ModalEvalSaveCtrl',
+				'size': 'sm',
 			})
 		}
 
 		$scope.grade = function(){
 			var modalInstance = $modal.open({
-				'templateUrl': 'app/view/modals/evalGradeConfirm.modal.html',
-				'controller': 'ModalSaveEval',
+				'templateUrl': 'app/views/modals/evalGrade.modal.html',
+				'controller': 'ModalEvalGradeCtrl',
+				'size': 'sm'
+			})
+		}
+
+		$scope.saveAndExit = function(){
+			var modalInstance = $modal.open({
+				'templateUrl': 'app/views/modals/evalSaveExit.modal.html',
+				'controller': 'ModalEvalSaveExitCtrl',
+				'size': 'sm'
 			})
 		}
 

@@ -4,7 +4,9 @@
 <div class="container" >
 	<div class="col-md-4" style="margin-top:15px;">
 		<div class="card">
-			<h1 class="text-center">Tu Promedio</h1>
+			<h1 class="text-center text-mint">
+				<strong>Tu Promedio</strong>
+			</h1>
 			<p class="average text-center" ng-class="{'text-success': user.average >= 80, 'text-warning': user.average < 80 && user.average >=60, 'text-danger': user.average < 60}" ng-bind="user.average"></p>
 		</div>
 		<div class="card">
@@ -37,7 +39,7 @@
 				<small>
 					<strong ng-show="user.pending.type == 'p'">Evaluación Personalizada</strong>
 					<strong ng-show="user.pending.type == 's'">Evaluación Estándar</strong>
-					<span>- Iniciada <span ng-bind="user.pending.start"></span></strong>
+					<span>- Tiempo restante:  <span ng-bind="user.pending.end"></span></strong>
 				</small>
 
 			</h2>

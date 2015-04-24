@@ -7,7 +7,7 @@ angular.module('Gema')
 		'average': Math.ceil(Math.random()*50) + 50,
 		'pending': {
 			'type': 's',
-			'start': 'hace 10 minutos'
+			'end': '01:20'
 		},
 		'next': 'p',
 		'previous': [
