@@ -1,1 +1,134 @@
 <div ng-include="'app/components/user-data.html'"></div>
+<div class="container">
+	<div class="col-md-4">
+		<div class="card">
+			<h3 class="text-mint">
+				<strong>Datos de la Evaluación</strong>
+			</h3>
+			<table class="table">
+				<tr>
+					<th>Promedio</th>
+					<td>64</td>
+				</tr>
+				<tr>
+					<th>Tipo</th>
+					<td>Estándar </td>
+				</tr>
+				<tr>
+					<th>Realizada</th>
+					<td>Martes 12 de Abril</td>
+				</tr>
+				<tr>
+					<th>Tiempo Utilizado</th>
+					<td>2 horas, 15 minutos</td>
+				</tr>
+			</table>
+		</div>
+		<div class="card">
+			<h3 class="text-mint">
+						<strong>Resultados</strong>
+					</h3>
+			<table class="table">
+				<tr>
+					<th>Materia</th>
+					<th>Resultado</th>
+					<th>%</th>
+				</tr>
+				<tr class='info'>
+					<th>
+						<strong>General</strong>
+					</th>
+					<td>
+						<strong>45 de 60</strong>
+					</td>
+					<td>
+						<strong>{{45/60 * 100}}</strong>
+					</td>
+				</tr>
+				<tr class='success'>
+					<td>Biología</td>
+					<td>18 de 20</td>
+					<td>{{18/20 * 100 }}</td>
+				</tr>
+				<tr class='warning'>
+					<td>Física</td>
+					<td>12 de 20</td>
+					<td>{{12/20 * 100 }}</td>
+				</tr>
+				<tr class='danger'>
+					<td>Química</td>
+					<td>16 de 20</td>
+					<td>{{12/30 * 100}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-8" style='margin-top:25px'>
+		<tabset type='pills' justified='true'>
+			<tab heading='Biología'>
+				<div class="card">
+					<h3 class="text-mint"><strong>Biología - Temas recomendados</strong></h3>
+					<p class='lead'>De acuerdo a tus respuestas y a tus resultados previos, éste es el dominio que tienes sobre los temas de ésta materia.</p>
+					<accordion>
+						<accordion-group heading='Temas que no dominas'>
+							<p class='text-danger'>No has estudiado lo suficiente de éstos temas.</p>
+							<ul>
+								<li>Estructura celular</li>
+								<li>Biodiversidad</li>
+							</ul>
+						</accordion-group>
+						<accordion-group heading='Temas que necesitan repaso'>
+							<p class='text-warning'>Ya has estudiado éstos temas, pero aún necesitan repaso. </p>
+							<ul>
+								<li>Ecosistemas</li>
+							</ul>
+						</accordion-group>
+						<accordion-group heading='Temas que ya dominas'>
+							<p class="text-success">Has respondido satisfactoriamente a las preguntas del tema.</p>
+							<ul>
+								<li>Fotosíntesis</li>
+								<li>Factores bióticos y abióticos</li>
+							</ul>
+						</accordion-group>
+					</accordion>
+				</div>
+				<!-- aquí van las respuestas de la evaluación -->
+				<div class="card">
+					
+				</div>
+			</tab>
+			<tab heading='Física'>
+				<div class="card">
+					<h3 class="text-mint"><strong>Física - Temas recomendados</strong></h3>
+					<p class='lead'>De acuerdo a tus respuestas y a tus resultados previos, éste es el dominio que tienes sobre los temas de ésta materia.</p>
+					<accordion>
+						<accordion-group heading='Temas que no dominas'>
+							<p class='text-danger'>No has estudiado lo suficiente de éstos temas.</p>
+							<ul>
+								<li>Mecánica cuántica</li>
+								<li>Choque elástico</li>
+							</ul>
+						</accordion-group>
+						<accordion-group heading='Temas que necesitan repaso'>
+							<p class='text-warning'>Ya has estudiado éstos temas, pero aún necesitan repaso. </p>
+							<ul>
+								<li>Conservación de la energía</li>
+								<li>Caída libre y tiro vertical</li>
+							</ul>
+						</accordion-group>
+						<accordion-group heading='Temas que ya dominas'>
+							<p class="text-success">Has respondido satisfactoriamente a las preguntas del tema.</p>
+							<ul>
+								<li>Vectores</li>
+							</ul>
+						</accordion-group>
+					</accordion>
+				</div>
+				<!-- aquí van las respuestas de la evaluación -->
+				<div class="card">
+					
+				</div>
+			</tab>
+		</tabset>
+	</div>
+</div>

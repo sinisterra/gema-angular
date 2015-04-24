@@ -5,7 +5,7 @@
 			<h1 class="text-center text-mint">
 				<strong>Tu Promedio</strong>
 			</h1>
-			<p class="average text-center" ng-class="{'text-success': user.average >= 80, 'text-warning': user.average < 80 && user.average >=60, 'text-danger': user.average < 60}" ng-bind="user.average"></p>
+			<p class="average text-center"><span ng-class="{'text-success': user.average >= 80, 'text-warning': user.average < 80 && user.average >=60, 'text-danger': user.average < 60}" ng-bind="user.average"></span></p>
 		</div>
 		<div class="card">
 			<h2>Control de Prototipo</h2>
