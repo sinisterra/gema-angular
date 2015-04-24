@@ -1,7 +1,5 @@
 <div ng-include="'app/components/user-data.html'"></div>
-
-
-<div class="container" >
+<div class="container">
 	<div class="col-md-4" style="margin-top:15px;">
 		<div class="card">
 			<h1 class="text-center text-mint">
@@ -13,28 +11,32 @@
 			<h2>Control de Prototipo</h2>
 			<div class="checkbox checkbox-success">
 				<label>
-					<input type="checkbox" ng-model="user.pending.state">
-					Evaluación Pendiente
+					<input type="checkbox" ng-model="user.pending.state"> Evaluación Pendiente
 				</label>
 			</div>
 			<div class="checkbox checkbox-success">
 				<label>
-					<input type="checkbox" ng-true-value="'p'" ng-false-value="'s'" ng-model="user.next">
-					Evaluación Sig: personalizada/estándar
+					<input type="checkbox" ng-true-value="'p'" ng-false-value="'s'" ng-model="user.next"> Evaluación Sig: personalizada/estándar
 				</label>
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" ng-model="user.previous">
-					Resultados Previos
+					<input type="checkbox" ng-model="user.previous"> Resultados Previos
 				</label>
 			</div>
 		</div>
+		<!-- <div class="card text-center">
+			<div class="row">
+				
+			<canvas id="plotRadar"></canvas>
+			<p>Compara tu última evaluación con tu promedio</p>
+			</div>
+		</div> -->
 	</div>
 	<div class="col-md-8" style="margin-top:15px;">
 		<!-- Evaluación pendiente -->
 		<div class="card text-center" ng-show="user.pending.state">
-			<h2 >
+			<h2>
 				<strong class='text-danger'>Tienes una evaluación en curso.</strong><br>
 				<small>
 					<strong ng-show="user.pending.type == 'p'">Evaluación Personalizada</strong>
@@ -48,10 +50,8 @@
 		<!-- Nueva evaluación -->
 		<div class="card" ng-show="!user.pending.state">
 			<div class="row">
-
 				<div class="col-sm-8">
-					
-					<h2 >
+					<h2>
 						<strong class="text-mint">Nueva Evaluación</strong><br>
 						<small ng-show="user.next == 'p'">
 							<strong>Personalizada - </strong>
@@ -81,8 +81,8 @@
 						</div>
 						<div class="row-content">
 							<div class="least-content">hace 10 días</div>
-							<h4 class="list-group-item-heading">Estándar (100 de 120)</h4>
-							<p class="list-group-item-text">¡Muy bien! Estás mejorando</p>
+							<h4 class="list-group-item-heading">Estándar</h4>
+							<p class="list-group-item-text">100 de 120 - <a ui-sref="revisar({id: 4})">Revisar</a></p>
 						</div>
 					</div>
 					<div class="list-group-separator"></div>
@@ -95,9 +95,18 @@
 				</h3>
 			</div>
 		</div>
-		
+		<!-- Gráficas -->
+		<div class="card" ng-controller="PlotCtrl">
+			<h2 class="text-mint"><strong>Estadísticas</strong> <small>Visualiza tus progresos.</small></h2>
+			<div class="row">
+				<div class="col-sm-6 text-center">
+					<canvas id="plotLine"></canvas>
+				</div>
+				<div class="col-sm-6 text-center">
+					<canvas id="plotRadar"></canvas>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-
-
-
+</div>

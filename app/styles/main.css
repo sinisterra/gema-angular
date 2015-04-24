@@ -88,6 +88,14 @@ body {
 	.center-xs {
 		text-align: center;
 	}
+
+
+}
+
+@media(max-width: 480px){
+		.average{
+		font-size:2em;
+	}
 }
 
 .bold {

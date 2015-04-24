@@ -27,7 +27,7 @@ angular.module('Gema', ['ui.router', 'ui.bootstrap'])
 			}
 		})
 		.state('revisar', {
-			url: '/revisar/:idEval',
+			url: '/revisar/:id',
 			templateUrl: 'app/views/revisar.html',
 		})
 		.state('settings', {
