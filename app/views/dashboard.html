@@ -27,12 +27,12 @@
 					</label>
 				</div>
 			</div>
-			<div class="card text-center">
+			<!-- <div class="card text-center">
 				<div class="row">
 					<canvas id="plotRadar"></canvas>
 					<p>Compara tu última evaluación con tu promedio</p>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="col-md-8" style="margin-top:15px;">
 			<!-- Evaluación pendiente -->
@@ -104,16 +104,27 @@
 				</div>
 			</div>
 			<!-- Gráficas -->
-			<div class="card" ng-controller="PlotCtrl">
-				<h2 class="text-mint">
+		</div>
+	<div class="col-sm-12">
+		<div class="card" ng-controller="PlotCtrl">
+			<h2 class="text-mint">
 				<strong>Estadísticas</strong><br>
-				<small>Visualiza tus progresos, comparando tu <span class="text-mint">promedio</span> con tus <span class="text-lime">evaluación más reciente</span> a través del tiempo así como por materia.</small>
+				<small>Visualiza tus progresos, comparando tu <span class="text-mint">promedio</span> con tus <span class="text-lime">evaluación más reciente</span>.</small>
 			</h2>
-				<div class="row">
-					<canvas id="plotLine"></canvas>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="row">
+							<canvas id="plotRadar"></canvas>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<canvas id="plotLine"></canvas>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </div>

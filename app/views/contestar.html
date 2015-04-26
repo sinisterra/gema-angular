@@ -28,10 +28,10 @@
 					<div ng-repeat="pregunta in materia.preguntas" class="card">
 						<div class="form-group">
 							<p class="question">{{$index + 1}}. {{pregunta.pregunta}}
+								<span class="pull-right" ng-show="pregunta.recurso">
 								<button class="btn btn-primary">
 									<span class="glyphicon glyphicon-edit"></span>
 								</button>
-								<span class="pull-right" ng-show="pregunta.recurso">
 								</span>
 							</p>
 							<div class="radio" ng-repeat='respuesta in pregunta.respuestas'>
