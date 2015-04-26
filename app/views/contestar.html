@@ -1,46 +1,48 @@
 <div ng-include="'app/components/user-data.html'"></div>
 <div class="container">
-	<div class="col-md-4">
-		<div class="card text-center">
-			<h1 class="text-mint">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card text-center">
+				<h1 class="text-mint">
 				<strong>Evaluación</strong>
 			</h1>
-			<div class="text-center">
+				<div class="text-center">
+				</div>
+				<p class="clock" am-time-ago="eval.fechaLimite" am-preprocess="unix"></p>
+				<button class="btn btn-primary" ng-click="save()">Guardar</button>
+				<button class="btn btn-success" ng-click="grade()">Calificar</button>
+				<a class="btn btn-danger" ng-click="saveAndExit()">Salir</a>
 			</div>
-			<p class="clock">3:00:00</p>
-			<button class="btn btn-primary" ng-click="save()">Guardar</button>
-			<button class="btn btn-success" ng-click="grade()">Calificar</button>
-			<a class="btn btn-danger" ng-click="saveAndExit()">Salir</a>
-		</div>
-		<!-- <div class="card">
+			<!-- <div class="card">
 			
 		</div> -->
-	</div>
-	<div class="col-md-8" style="margin-top:20px">
-		<tabset justified="true" type="pills" id="questions-container">
-			<tab heading="Instrucciones">
-				<div class="card">
-					<div ui-view='instrucciones'></div>
-				</div>
-			</tab>
-			<tab ng-repeat="materia in eval.materias" heading="{{materia.nombre}}">
-				<div ng-repeat="pregunta in materia.preguntas" class="card">
-					<div class="form-group">
-						<p class="question">{{$index + 1}}. {{pregunta.pregunta}}
-							<span class="pull-right" ng-show="pregunta.recurso">
+		</div>
+		<div class="col-md-8" style="margin-top:20px">
+			<tabset justified="true" type="pills" id="questions-container">
+				<tab heading="Instrucciones">
+					<div class="card">
+						<div ui-view='instrucciones'></div>
+					</div>
+				</tab>
+				<tab ng-repeat="materia in eval.materias" heading="{{materia.nombre}}">
+					<div ng-repeat="pregunta in materia.preguntas" class="card">
+						<div class="form-group">
+							<p class="question">{{$index + 1}}. {{pregunta.pregunta}}
+								<span class="pull-right" ng-show="pregunta.recurso">
 								<button class="btn btn-primary">
 									<span class="glyphicon glyphicon-edit"></span>
-							</button>
-							</span>
-						</p>
-						<div class="radio" ng-repeat='respuesta in pregunta.respuestas'>
-							<label class="answer" ng-class="{'bold': pregunta.sel == $index}">
-								<input type="radio" name="{{pregunta.qid}}" value="{{$index}}" id="{{pregunta.qid}}-{{$index}}" ng-model="pregunta.sel" ng-checked="pregunta.sel == $index"> {{respuesta.texto}}
-							</label>
+								</button>
+								</span>
+							</p>
+							<div class="radio" ng-repeat='respuesta in pregunta.respuestas'>
+								<label class="answer" ng-class="{'bold': pregunta.sel == $index}">
+									<input type="radio" name="{{pregunta.qid}}" value="{{$index}}" id="{{pregunta.qid}}-{{$index}}" ng-model="pregunta.sel" ng-checked="pregunta.sel == $index"> {{respuesta.texto}}
+								</label>
+							</div>
 						</div>
 					</div>
-				</div>
-			</tab>
-		</tabset>
+				</tab>
+			</tabset>
+		</div>
 	</div>
 </div>

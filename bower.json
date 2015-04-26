@@ -23,6 +23,8 @@
     "font-awesome": "~4.3.0",
     "angular-ui-router": "~0.2.13",
     "angular-bootstrap": "~0.12.1",
-    "Chart.js": "~1.0.2"
+    "Chart.js": "~1.0.2",
+    "angular-moment": "~0.10.0",
+    "moment": "~2.10.2"
   }
 }

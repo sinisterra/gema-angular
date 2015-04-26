@@ -1,9 +1,9 @@
 angular.module('Gema')
-	.controller('ContestarEvaluacionCtrl', function($scope, $modal) {
+	.controller('ContestarCtrl', function($scope, $modal, $state, $timeout) {
 		$scope.eval = {
-			'data': {
-				'type': 's'
-			},
+			'id': 120,
+			'tipo': 's',
+			'fechaLimite': 1430013051, //al llegar a esta fecha hay que mandarlo a calificar
 			'materias': [{
 				'id': 'FIS',
 				'nombre': 'Física',
@@ -57,8 +57,39 @@ angular.module('Gema')
 			}]
 		}
 
+		$scope.mytimeout = {}
 
-		$scope.save = function(){
+
+		$scope.onTimeout = function() {
+			if ($scope.eval.fechaIniciado <= $scope.eval.fechaLimite) {
+				$scope.eval.fechaIniciado++;
+				$scope.mytimeout = $timeout($scope.onTimeout, 1000);
+			}
+			else {
+				// enviar datos y redirigir al estado revisar({id: <eval.id>})
+				$scope.stop($scope.mytimeout)
+				$state.go('revisar', {
+					'id': $scope.eval.id
+				})
+			}
+		}
+
+		//cuando inicie la evaluación, hay que llamar a este método
+		$scope.iniciar = function() {
+			$scope.eval.fechaIniciado = Math.round(+new Date() / 1000);
+			console.log($scope.eval.fechaIniciado)
+			console.log($scope.eval.fechaLimite)
+			$scope.mytimeout = $timeout($scope.onTimeout, 1000);
+		}
+
+		//si se envía a calificar, o cambia de vista
+		$scope.stop = function() {
+			$timeout.cancel($scope.mytimeout);
+		}
+
+		$scope.iniciar();
+
+		$scope.save = function() {
 			var modalInstance = $modal.open({
 				'templateUrl': 'app/views/modals/evalSave.modal.html',
 				'controller': 'ModalEvalSaveCtrl',
@@ -66,7 +97,7 @@ angular.module('Gema')
 			})
 		}
 
-		$scope.grade = function(){
+		$scope.grade = function() {
 			var modalInstance = $modal.open({
 				'templateUrl': 'app/views/modals/evalGrade.modal.html',
 				'controller': 'ModalEvalGradeCtrl',
@@ -74,7 +105,7 @@ angular.module('Gema')
 			})
 		}
 
-		$scope.saveAndExit = function(){
+		$scope.saveAndExit = function() {
 			var modalInstance = $modal.open({
 				'templateUrl': 'app/views/modals/evalSaveExit.modal.html',
 				'controller': 'ModalEvalSaveExitCtrl',

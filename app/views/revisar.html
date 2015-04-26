@@ -8,15 +8,22 @@
 			<table class="table">
 				<tr>
 					<th>Resultado</th>
-					<td>75</td>
-				</tr>
-				<tr>
-					<th>Promedio</th>
-					<td>64</td>
+					<td>
+						<strong>
+						<span ng-class="{'text-success':eval.pct >= 80, 'text-warning': eval.pct < 80 && eval.pct >= 60, 'text-danger': eval.pct < 60}"> 
+							
+						<span ng-bind="eval.correctas"></span> de <span ng-bind="eval.total"></span>
+
+						(<span ng-bind="eval.pct"></span> %)
+					</span>
+							
+						</strong>
+					</td>
 				</tr>
 				<tr>
 					<th>Tipo</th>
-					<td>Estándar </td>
+					<td><span ng-show="eval.tipo === 's'">Estándar</span>
+						<span ng-show="eval.tipo === 'p'">Personalizado</span></td>
 				</tr>
 				<tr>
 					<th>Realizada</th>
@@ -38,88 +45,92 @@
 					<th>Resultado</th>
 					<th>%</th>
 				</tr>
-				<tr class='success'>
-					<td>Biología</td>
-					<td>18 de 20</td>
-					<td>{{18/20 * 100 }}</td>
-				</tr>
-				<tr class='warning'>
-					<td>Física</td>
-					<td>12 de 20</td>
-					<td>{{12/20 * 100 }}</td>
-				</tr>
-				<tr class='danger'>
-					<td>Química</td>
-					<td>16 de 20</td>
-					<td>{{12/30 * 100}}</td>
+				<tr ng-repeat='m in eval.materias' ng-class="{'success':m.pct >= 80, 'warning': m.pct < 80 && m.pct >= 60, 'danger': m.pct < 60}">
+					<td><span ng-bind="m.nombre"></span></td>
+					<td><span ng-bind="m.correctas"></span> de <span ng-bind="m.total"></span></td>
+					<td>
+						<span ng-bind="m.pct"></span>
+					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
 	<div class="col-md-8" style='margin-top:25px'>
 		<tabset type='pills' justified='true'>
-			<tab heading='Biología'>
-				<div class="card">
-					<h3 class="text-mint"><strong>Biología - Temas recomendados</strong></h3>
+			<tab heading='{{materia.nombre}}' ng-repeat="materia in eval.materias">
+				
+				<!-- Justificación -->
+				<div class="card recomendaciones">
+					<h3 class="text-mint"><strong><span ng-bind="materia.nombre"></span> - Temas recomendados</strong></h3>
 					<p class='lead'>De acuerdo a tus respuestas y a tus resultados previos, éste es el dominio que tienes sobre los temas de ésta materia.</p>
 					<accordion>
-						<accordion-group heading='Temas que no dominas'>
+						<accordion-group heading='Temas que no dominas' ng-show='materia.recomendacion.noDomina'>
 							<p class='text-danger'>No has estudiado lo suficiente de éstos temas.</p>
 							<ul>
-								<li>Estructura celular</li>
-								<li>Biodiversidad</li>
+								<li ng-repeat="r in materia.recomendacion.noDomina">
+									<span ng-bind="r"></span>
+								</li>
 							</ul>
 						</accordion-group>
-						<accordion-group heading='Temas que necesitan repaso'>
+						<accordion-group heading='Temas que necesitan repaso' ng-show='materia.recomendacion.repaso'>
 							<p class='text-warning'>Ya has estudiado éstos temas, pero aún necesitan repaso. </p>
 							<ul>
-								<li>Ecosistemas</li>
+								<li ng-repeat="r in materia.recomendacion.repaso">
+									<span ng-bind="r"></span>
+								</li>
 							</ul>
 						</accordion-group>
 						<accordion-group heading='Temas que ya dominas'>
-							<p class="text-success">Has respondido satisfactoriamente a las preguntas del tema.</p>
+							<p class="text-success">Has respondido satisfactoriamente a las preguntas de éstos temas. ¡Sigue así<!DOCTYPE html>
+							<html lang="en">
+							<head>
+								<meta charset="UTF-8">
+								<title>Document</title>
+							</head>
+							<body>
+								
+							</body>
+							</html></p>
 							<ul>
-								<li>Fotosíntesis</li>
-								<li>Factores bióticos y abióticos</li>
+								<li ng-repeat="r in materia.recomendacion.domina">
+									<span ng-bind="r"></span>
+								</li>
 							</ul>
 						</accordion-group>
 					</accordion>
 				</div>
-				<!-- aquí van las respuestas de la evaluación -->
-				<div class="card">
-					
-				</div>
-			</tab>
-			<tab heading='Física'>
-				<div class="card">
-					<h3 class="text-mint"><strong>Física - Temas recomendados</strong></h3>
-					<p class='lead'>De acuerdo a tus respuestas y a tus resultados previos, éste es el dominio que tienes sobre los temas de ésta materia.</p>
-					<accordion>
-						<accordion-group heading='Temas que no dominas'>
-							<p class='text-danger'>No has estudiado lo suficiente de éstos temas.</p>
-							<ul>
-								<li>Mecánica cuántica</li>
-								<li>Choque elástico</li>
-							</ul>
-						</accordion-group>
-						<accordion-group heading='Temas que necesitan repaso'>
-							<p class='text-warning'>Ya has estudiado éstos temas, pero aún necesitan repaso. </p>
-							<ul>
-								<li>Conservación de la energía</li>
-								<li>Caída libre y tiro vertical</li>
-							</ul>
-						</accordion-group>
-						<accordion-group heading='Temas que ya dominas'>
-							<p class="text-success">Has respondido satisfactoriamente a las preguntas del tema.</p>
-							<ul>
-								<li>Vectores</li>
-							</ul>
-						</accordion-group>
-					</accordion>
-				</div>
-				<!-- aquí van las respuestas de la evaluación -->
-				<div class="card">
-					
+				
+				<div ng-repeat="pregunta in materia.preguntas" class="card">
+					<div class="form-group">
+						<p class="question">{{$index + 1}}. {{pregunta.pregunta}}
+							<span class="pull-right">
+								<span class='fa' ng-class="{'fa-check text-success': pregunta.correcta == pregunta.sel, 'fa-close text-danger': pregunta.correcta != pregunta.sel }"></span>
+							<span ng-show="pregunta.recurso">
+								<button class="btn btn-primary">
+									<span class="glyphicon glyphicon-edit"></span>
+							</button>
+							</span>
+							</span>
+						</p>
+						<div ng-show="pregunta.sel != undefined">
+							<div class="radio answer" ng-repeat='respuesta in pregunta.respuestas' ng-class="{'alert-success': $index == pregunta.correcta, 'alert-danger': $index == pregunta.sel && $index != pregunta.correcta}">
+								<label class="answer" ng-class="{'bold': pregunta.sel == $index}">
+									<input type="radio" name="{{pregunta.qid}}" value="{{$index}}" id="{{pregunta.qid}}-{{$index}}" ng-model="pregunta.sel" ng-checked="pregunta.sel == $index" disabled> {{respuesta.texto}}
+
+								</label>
+							</div>
+							<div ng-show="pregunta.justificacion">
+								<hr>
+								<h4><strong>Justificación</strong></h4>
+								<blockquote>
+									<p ng-bind='pregunta.justificacion'></p>
+								</blockquote>
+							</div>
+						</div>
+						<div ng-show="!pregunta.sel" class='text-center'>
+							<p>No contestaste ésta pregunta</p>
+						</div>
+					</div>
 				</div>
 			</tab>
 		</tabset>

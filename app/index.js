@@ -1,4 +1,11 @@
-angular.module('Gema', ['ui.router', 'ui.bootstrap'])
+Chart.defaults.global.responsive = true;
+moment.locale('es')
+
+angular.module('Gema', ['ui.router', 'ui.bootstrap', 'angularMoment'])
+
+.run(function(amMoment) {
+    amMoment.changeLocale('es');
+})
 
 .config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/home');
@@ -19,7 +26,7 @@ angular.module('Gema', ['ui.router', 'ui.bootstrap'])
 			views: {
 				'': {
 					templateUrl: 'app/views/contestar.html',
-					controller: 'ContestarEvaluacionCtrl'
+					controller: 'ContestarCtrl'
 				},
 				'instrucciones@contestar': {
 					templateUrl: 'app/views/eval/instrucciones.html'
@@ -29,10 +36,11 @@ angular.module('Gema', ['ui.router', 'ui.bootstrap'])
 		.state('revisar', {
 			url: '/revisar/:id',
 			templateUrl: 'app/views/revisar.html',
+			controller: 'RevisarCtrl',
 		})
-		.state('settings', {
-			url: '/settings',
-			templateUrl: 'app/views/settings.html',
-		})
+		// .state('settings', {
+		// 	url: '/settings',
+		// 	templateUrl: 'app/views/settings.html',
+		// })
 
 });

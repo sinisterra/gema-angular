@@ -32,12 +32,6 @@ body {
 	padding: 20px 0px;
 }
 
-/*#questions-container .tab-content {
-	max-height: 52em;
-	overflow-y: auto;
-	padding: 0px 15px;
-	margin-top: 15px;
-}*/
 
 #container {
 	background-color: rgb(62, 180, 137);
@@ -88,13 +82,11 @@ body {
 	.center-xs {
 		text-align: center;
 	}
-
-
 }
 
-@media(max-width: 480px){
-		.average{
-		font-size:2em;
+@media(max-width: 480px) {
+	.average {
+		font-size: 2em;
 	}
 }
 
@@ -109,4 +101,15 @@ body {
 
 .answer {
 	font-size: 14pt;
+	padding:5px;
+	border-radius:5px;
+}
+
+.text-lime {
+	color: rgb(205, 220, 57);
+}
+
+.recomendaciones .panel-heading{
+	background-color: rgb(62, 180, 137);
+	color:white;
 }
