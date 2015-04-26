@@ -81,16 +81,7 @@
 							</ul>
 						</accordion-group>
 						<accordion-group heading='Temas que ya dominas'>
-							<p class="text-success">Has respondido satisfactoriamente a las preguntas de éstos temas. ¡Sigue así<!DOCTYPE html>
-							<html lang="en">
-							<head>
-								<meta charset="UTF-8">
-								<title>Document</title>
-							</head>
-							<body>
-								
-							</body>
-							</html></p>
+							<p class="text-success">Has respondido satisfactoriamente a las preguntas de éstos temas. ¡Sigue así!
 							<ul>
 								<li ng-repeat="r in materia.recomendacion.domina">
 									<span ng-bind="r"></span>
@@ -104,7 +95,7 @@
 					<div class="form-group">
 						<p class="question">{{$index + 1}}. {{pregunta.pregunta}}
 							<span class="pull-right">
-								<span class='fa' ng-class="{'fa-check text-success': pregunta.correcta == pregunta.sel, 'fa-close text-danger': pregunta.correcta != pregunta.sel }"></span>
+								<span class='fa' ng-class="{'fa-check text-success': pregunta.correcta == pregunta.sel, 'fa-close text-danger': pregunta.correcta != pregunta.sel || pregunta.sel == undefined}"></span>
 							<span ng-show="pregunta.recurso">
 								<button class="btn btn-primary">
 									<span class="glyphicon glyphicon-edit"></span>
@@ -115,7 +106,7 @@
 						<div ng-show="pregunta.sel != undefined">
 							<div class="radio answer" ng-repeat='respuesta in pregunta.respuestas' ng-class="{'alert-success': $index == pregunta.correcta, 'alert-danger': $index == pregunta.sel && $index != pregunta.correcta}">
 								<label class="answer" ng-class="{'bold': pregunta.sel == $index}">
-									<input type="radio" name="{{pregunta.qid}}" value="{{$index}}" id="{{pregunta.qid}}-{{$index}}" ng-model="pregunta.sel" ng-checked="pregunta.sel == $index" disabled> {{respuesta.texto}}
+									<!-- <input type="radio" name="{{pregunta.qid}}" value="{{$index}}" id="{{pregunta.qid}}-{{$index}}" ng-model="pregunta.sel" ng-checked="pregunta.sel == $index" disabled> --> {{respuesta}}
 
 								</label>
 							</div>
@@ -123,12 +114,14 @@
 								<hr>
 								<h4><strong>Justificación</strong></h4>
 								<blockquote>
-									<p ng-bind='pregunta.justificacion'></p>
+									<p ng-bind='pregunta.justificacion' ng-show="pregunta.justificacion"></p>
+									<p ng-show="!pregunta.justificacion">La jusificación está pendiente.</p>
 								</blockquote>
 							</div>
+
 						</div>
-						<div ng-show="!pregunta.sel" class='text-center'>
-							<p>No contestaste ésta pregunta</p>
+						<div ng-show="pregunta.sel == undefined" class='text-center'>
+							<p>No contestaste ésta pregunta.</p>
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@ angular.module('Gema')
 		$scope.eval = {
 			'id': 120,
 			'tipo': 's',
-			'fechaLimite': 1430013051, //al llegar a esta fecha hay que mandarlo a calificar
+			'fechaLimite': 1431230263, //al llegar a esta fecha hay que mandarlo a calificar
 			'materias': [{
 				'id': 'FIS',
 				'nombre': 'Física',
@@ -14,46 +14,18 @@ angular.module('Gema')
 					'recurso': {
 						'url': 'https://www.facebook.com',
 					},
-					'respuestas': [{
-						'texto': 'A'
-					}, {
-						'texto': 'B'
-					}, {
-						'texto': 'C'
-					}, {
-						'texto': 'D'
-					}, ]
+					'respuestas': ['A', 'B', 'C', 'D']
 				}, {
 					'qid': '120',
 					'pregunta': '¿Cuál es la respuesta A?',
 					'sel': 0,
-					'respuestas': [{
-						'texto': 'A'
-					}, {
-						'texto': 'B'
-					}, {
-						'texto': 'C'
-					}, {
-						'texto': 'D'
-					}, ]
+					'respuestas': ['A', 'B', 'C', 'D']
 				}, {
 					'qid': '120',
 					'pregunta': '¿Cuál es la respuesta A?',
 					'sel': 0,
-					'respuestas': [{
-						'texto': 'A'
-					}, {
-						'texto': 'B'
-					}, {
-						'texto': 'C'
-					}, {
-						'texto': 'D'
-					}, ]
+					'respuestas': ['A', 'B', 'C', 'D']
 				}]
-			}, {
-				'id': 'BIO',
-				'nombre': 'Biología',
-				'preguntas': [{}]
 			}]
 		}
 

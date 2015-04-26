@@ -21,19 +21,18 @@ angular.module('Gema')
 				},
 				'preguntas': [{
 					'pregunta': '¿Cuál es la respuesta A?',
+					'justificacion': 'Claramente, la primera opción es la respuesta A',
 					'recurso': '',
 					'correcta': 0,
-					'sel':1,
-					'respuestas': [{
-						'texto': 'A'
-					}, {
-						'texto': 'B'
-					}, {
-						'texto': 'C'
-					}, {
-						'texto': 'D'
-					}, ]
-				}]
+					'sel': 0,
+					'respuestas': ['A', 'B', 'C', 'D']
+				}, {
+					'pregunta': '¿Cuál es la respuesta B?',
+					'justificacion': 'Claramente, era la respuesta B',
+					'correcta': 0,
+					'sel': 1,
+					'respuestas': ['A', 'B', 'C', 'D']
+				}, ]
 			}]
 		}
 	});
