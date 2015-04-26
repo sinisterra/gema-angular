@@ -42,7 +42,7 @@
 				<small>
 					<strong ng-show="user.pending.type == 'p'">Evaluación Personalizada</strong>
 					<strong ng-show="user.pending.type == 's'">Evaluación Estándar</strong>
-					<span>- Tiempo restante:  <span ng-bind="user.pending.end"></span></strong>
+					<span>- Debes finalizarla  <span ng-bind="user.pending.end" am-time-ago="user.pending.end" am-preprocess='unix'></span></strong>
 				</small>
 
 			</h2>
@@ -79,17 +79,23 @@
 						<div ng-repeat="eval in user.resultados">
 							<div class="list-group-item">
 								<div class="row-action-primary">
-									<i class="fa fa-globe"></i>
+									<i class="fa" ng-class="{'fa-globe eval-s': eval.tipo=='s', 'fa-user eval-p': eval.tipo=='p'}"></i>
 								</div>
 								<div class="row-content">
-									<div class="least-content">
-										<span am-time-ago='eval.fecha' am-preprocess='unix'></span>
-									</div>
 									<h4 class="list-group-item-heading">
-										<span ng-show="eval.tipo === 's'">Evaluación Estándar</span>
-										<span ng-show="eval.tipo === 'p'">Evaluación Personalizada</span>
+										<span ng-show="eval.tipo === 's'">Estándar</span>
+										<span ng-show="eval.tipo === 'p'">Personalizada</span>
+											<small am-time-ago='eval.fecha' am-preprocess='unix'></small>
 									</h4>
-									<p class="list-group-item-text">100 de 120 - <a ui-sref="revisar({id: eval.id})">Revisar</a></p>
+									<p class="list-group-item-text">
+										<span ng-class="{'text-success':eval.pct >= 80, 'text-warning': eval.pct < 80 && eval.pct >= 60, 'text-danger': eval.pct < 60}"> 
+										<span ng-bind="eval.correctas"></span> de <span ng-bind="eval.total"></span> - <strong> <span ng-bind="eval.pct"></span> % </strong>
+										</span>
+										<a class='pull-right' ui-sref="revisar({id: eval.id})">
+											<strong>
+												Revisar respuestas
+											</strong></a>
+									</p>
 								</div>
 							</div>
 							<div class="list-group-separator"></div>
@@ -105,26 +111,27 @@
 			</div>
 			<!-- Gráficas -->
 		</div>
-	<div class="col-sm-12">
-		<div class="card" ng-controller="PlotCtrl">
-			<h2 class="text-mint">
+		<div class="col-sm-12">
+
+			<div class="card" ng-controller="PlotCtrl">
+				<h2 class="text-mint">
 				<strong>Estadísticas</strong><br>
 				<small>Visualiza tus progresos, comparando tu <span class="text-mint">promedio</span> con tus <span class="text-lime">evaluación más reciente</span>.</small>
 			</h2>
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="row">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="row">
 							<canvas id="plotRadar"></canvas>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-8">
-					<div class="row">
-						<canvas id="plotLine"></canvas>
+					<div class="col-sm-8">
+						<div class="row">
+							<canvas id="plotLine"></canvas>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 </div>

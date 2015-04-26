@@ -113,3 +113,15 @@ body {
 	background-color: rgb(62, 180, 137);
 	color:white;
 }
+
+.eval-s{
+	background-color: rgb(62, 180, 137) !important;
+}
+
+.eval-p{
+	background-color: rgb(205, 220, 57) !important;
+}
+
+blockquote{
+	border-color:#3EB489;
+}

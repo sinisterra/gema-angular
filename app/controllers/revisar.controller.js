@@ -6,9 +6,9 @@ angular.module('Gema')
 			'total': 120,
 			'pct': 84,
 			'tipo': 'p', //p|s
-			'fechaIniciado': '',
-			'fechaCalificado': '',
-			'fechaLimite': '',
+			'fechaIniciado': '', //int
+			'fechaCalificado': '', //int
+			'fechaLimite': '', //int
 			'materias': [{
 				'nombre': 'Biología',
 				'correctas': 18,
