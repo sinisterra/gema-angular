@@ -1,7 +1,76 @@
 <div class="col-sm-12 np">
-	<div class="jumbotron">
-		<h1>GEMA: Evoluciona tu conocimiento</h1>
-		<a role="button" class="btn btn-success" ng-click="modalLogin()">Iniciar Sesión</a>
-
-	</div>
+	<section id="home-header" class="col-sm-12 np">
+		<div class="col-sm-6 center-xs">
+			<h1>
+			<img src="app/images/logo.png" class="logo-gema" ui-sref="dashboard">
+			GEMA <small style="font-size:14pt;color:white;" class="hidden-xs">Evoluciona tu conocimiento.</small>
+		</h1>
+		</div>
+		<div class="col-sm-6 text-right center-xs" style="">
+			<p>
+				<span class="loggedUser-user" ng-bind="user.name"></span>
+				<span class="loggedUser-role" ng-bind="user.role"></span>
+			</p>
+			<a role="button" class="btn btn-primary" ng-click="modalLogin()">
+				<span class="fa fa-sign-in"></span> Inicia Sesión
+			</a>
+			<a role="button" class="btn btn-primary" ng-click="modalSign()">
+				<span class="fa fa-user"></span> Crea un Usuario
+			</a>
+		</div>
+	</section>
+	<section id="home-splash" class="col-sm-12 np">
+	</section>
+	<section id="home-message" class="col-sm-12 np">
+		<div class="text-center">
+			<h1>Evoluciona tu conocimiento</h1>
+			<p>GEMA te ayuda a mejorar, adaptándose a tus fortalezas y debilidades</p>
+			<a role="button" class="btn btn-lg btn-primary" ng-click="modalLogin()">
+				<span class="fa fa-signup"></span> Iniciar Sesión</a>
+		</div>
+	</section>
+	<section id="home-features" class="col-sm-12 np">
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="col-md-4 feature">
+				<img src="app/images/features/1.png" class="img-portada">
+				<h2>Trabaja a tu ritmo</h2>
+				<p>Accede al número de evaluaciones que quieras, cuando quieras y donde quieras.
+				</p>
+			</div>
+			<div class="col-md-4 feature">
+				<img src="app/images/features/2.png" class="img-portada">
+				<h2>Sigue tus progresos</h2>
+				<p>Analiza y consulta tus progresos y resultados de las evaluaciones previas.
+				</p>
+			</div>
+			<div class="col-md-4 feature">
+				<img src="app/images/features/3.png" class="img-portada">
+				<h2>Úsalo donde sea</h2>
+				<p>Ingresa desde cualquier tipo de dispositivo, incluidos Teléfonos y Tablets.
+				</p>
+			</div>
+		</div>
+	</section>
+	<section id="home-highlight" class="col-sm-12 np">
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="col-sm-6 highlight">
+				<div class="card">
+					<img src="app/images/highlight/highlight-2.png" class="img-responsive">
+					<h2>Realiza Evaluaciones Reales</h2>
+					<p>GEMA está estructurado en torno a siete áreas de conocimiento.
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-6 highlight">
+				<div class="card">
+					<img src="app/images/highlight/highlight-1.png" class="img-responsive">
+					<h2>Resultados y Justificaciones</h2>
+					<p>GEMA usa tus resultados previos para ayudarte a dominar más temas</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="home-signup" class="col-sm-12 np">
+	<p>Instituto Politécnico Nacional - 2015</p>
+	</section>
 </div>

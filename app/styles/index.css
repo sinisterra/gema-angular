@@ -1,0 +1,51 @@
+#home-header {
+    background-color: rgb(62, 180, 137);
+    color: #fff;
+    padding: 20px 0px;
+}
+
+#home-splash {
+    height: 100vh;
+    background-image: url('../images/portada.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+#home-message {
+    background-color: #333;
+    color: white;
+    padding: 15px 0px;
+    font-size: 16px;
+}
+
+div.feature {
+    text-align: center;
+    padding: 30px;
+}
+
+div.feature img:hover {
+    transform: scale(1.15);
+    transition: 500ms ease all;
+}
+
+div.feature p {
+    font-size: 16px;
+}
+
+#home-highlight {
+    background-color: rgb(62, 180, 137);
+}
+
+div.highlight {
+    padding: 0px 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#home-signup{
+	background-color: #333;
+	color: white;
+	text-align:  center;
+}
